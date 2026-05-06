@@ -63,3 +63,9 @@ scalac -d build/classes src/Policy.scala src/DomainReview.scala tests/Test.scala
 scala -cp build/classes TestRunner
 
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-scalaring-detail.ps1
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-scalaring-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-scalaring-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
