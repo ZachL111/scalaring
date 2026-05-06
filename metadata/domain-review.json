@@ -1,0 +1,73 @@
+{
+  "repo": "scalaring",
+  "language": "Scala",
+  "category": "Distributed systems",
+  "goal": "Simulate actor ring routing and failure detection traces.",
+  "review_model": {
+    "terms": [
+      "quorum health",
+      "lease drift",
+      "replica lag",
+      "membership churn"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "quorum health",
+      "signal": 75,
+      "slack": 27,
+      "drag": 25,
+      "confidence": 47,
+      "score": 149,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "lease drift",
+      "signal": 47,
+      "slack": 51,
+      "drag": 12,
+      "confidence": 58,
+      "score": 167,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "replica lag",
+      "signal": 61,
+      "slack": 32,
+      "drag": 23,
+      "confidence": 60,
+      "score": 145,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "membership churn",
+      "signal": 56,
+      "slack": 31,
+      "drag": 14,
+      "confidence": 48,
+      "score": 149,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "quorum health",
+      "signal": 88,
+      "slack": 46,
+      "drag": 21,
+      "confidence": 58,
+      "score": 217,
+      "lane": "ship"
+    }
+  ]
+}
